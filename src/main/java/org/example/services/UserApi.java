@@ -6,7 +6,7 @@ import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+
 
 public class UserApi {
     private static final String BASE_URL = "https://petstore.swagger.io/v2";
@@ -17,7 +17,6 @@ public class UserApi {
         rspec = given()
                 .baseUri(BASE_URL)
                 .contentType(ContentType.JSON);
-
     }
 
     public ValidatableResponse createUser (User user) {
@@ -42,8 +41,6 @@ public class UserApi {
              .then()
                 .log().all()
                 .statusCode(200);
-
-
     }
 
     public ValidatableResponse removeUser(User user) {
@@ -55,7 +52,6 @@ public class UserApi {
              .then()
                 .log().all()
                 .statusCode(200);
-
     }
 
     public ValidatableResponse logoutUser(User user) {
@@ -77,6 +73,5 @@ public class UserApi {
              .then()
                 .log().all()
                 .statusCode(200);
-
     }
 }
