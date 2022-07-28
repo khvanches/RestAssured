@@ -1,18 +1,6 @@
-Camel Java Router Project
+<h2>RestAssured Test Project<h2>
 =========================
 
-=== How to build
-
-To build this project use
-
-    mvn install
-
-=== How to run
-
-You can run this example using
-
-    mvn camel:run
-
-=== More information
-
-You can find more information about Apache Camel at the website: http://camel.apache.org/
+<h4>Start tests</h4>
+<p>To start test from command line use:<br>
+<i>mvn clean test</i>

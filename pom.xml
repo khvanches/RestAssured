@@ -7,7 +7,7 @@
   <groupId>org.example</groupId>
   <artifactId>RestAssured</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
 
 
   <properties>
@@ -24,6 +24,7 @@
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     <surefire.plugin.version>2.22.2</surefire.plugin.version>
     <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
+    <java.version>13</java.version>
 
     <forkCount>1</forkCount>
     <reuseForks>true</reuseForks>
@@ -36,6 +37,8 @@
     <surefire.plugin.version>2.22.2</surefire.plugin.version>
     <findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
     <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
+
+    <base.url>https://petstore.swagger.io/v2</base.url>
 
   </properties>
 
@@ -54,7 +57,7 @@
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <version>${io.rest-assured.version}</version>
-      <scope>test</scope>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>io.rest-assured</groupId>
@@ -86,14 +89,8 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
-      <version>RELEASE</version>
+      <version>${org.junit.jupiter}</version>
       <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>${lombok.version}</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.assertj</groupId>
@@ -106,13 +103,6 @@
       <version>${lombok.version}</version>
       <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>io.rest-assured</groupId>
-      <artifactId>rest-assured</artifactId>
-      <version>${io.rest-assured.version}</version>
-      <scope>compile</scope>
-    </dependency>
-
   </dependencies>
 
   <build>
@@ -131,7 +121,10 @@
           <threadCountMethods>${thread.count}</threadCountMethods>
 
           <systemPropertyVariables>
+            <base.url>${base.url}</base.url>
             <test.project.status>test</test.project.status>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
           </systemPropertyVariables>
 
         </configuration>
